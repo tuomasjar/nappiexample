@@ -1,16 +1,18 @@
-#define nappula 5
-#define maxViive 1000
+#define nappula 5  //nappipinni
+#define maxViive 1000 //maksimiviive viimeisen painalluksen jälkeen
+#define debounce 250  //debounceviive
 
 double aika;
-int laskuri=0;
+int laskuri;
 void setup() {
-  pinMode(nappula, INPUT_PULLUP);
+  pinMode(nappula, INPUT_PULLUP); //Käytä ylösvetovastusta kytke pinnistä napin kautta maahan
   aika=millis();
+  laskuri=0; //nollaa laskuri
 }
 
 void loop() {
-  bool nappi = !(digitalRead(nappula)); //Päinvasrtoin koska input_pullup
-  if(nappi && millis()-aika>250){ //250 millisekunnin debounce
+  bool nappi = !(digitalRead(nappula)); //Päinvastoin koska input_pullup
+  if(nappi && millis()-aika>debounce){ //250 millisekunnin debounce
     laskuri++;
     aika=millis();
   }
