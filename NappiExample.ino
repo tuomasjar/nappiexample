@@ -2,7 +2,7 @@
 #define maxViive 1000 //maksimiviive viimeisen painalluksen jälkeen
 #define debounce 250  //debounceviive
 
-double aika;
+long aika;
 int laskuri;
 void setup() {
   pinMode(nappula, INPUT_PULLUP); //Käytä ylösvetovastusta kytke pinnistä napin kautta maahan
